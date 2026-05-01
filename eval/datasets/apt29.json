@@ -1,0 +1,10 @@
+{
+  "id": "apt29-min",
+  "brief": "APT29 (a.k.a. Cozy Bear, Midnight Blizzard) is a Russian state-sponsored intrusion set known for stealthy intrusions against government and think-tank targets. Recent campaigns rely on PowerShell-based execution and HTTPS application-layer protocols for command-and-control. Plan a minimal kill-chain emulation campaign covering execution and command-and-control phases that this group is documented to use.",
+  "actor_node": "G0016",
+  "expected_techniques": [
+    "T1059.001",
+    "T1071.001"
+  ],
+  "notes": "Synthetic golden case backed by tests/fixtures/attack_mini.json and a small synthetic CTI corpus that names APT29's documented techniques."
+}
