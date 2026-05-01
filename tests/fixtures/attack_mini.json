@@ -1,0 +1,146 @@
+{
+  "type": "bundle",
+  "id": "bundle--00000000-0000-0000-0000-000000000001",
+  "spec_version": "2.1",
+  "objects": [
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--cmd",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "Command and Scripting Interpreter",
+      "description": "Adversaries may abuse command and script interpreters to execute commands.",
+      "kill_chain_phases": [
+        {"kill_chain_name": "mitre-attack", "phase_name": "execution"}
+      ],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "T1059"}
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--powershell",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "PowerShell",
+      "description": "Adversaries may abuse PowerShell commands and scripts.",
+      "kill_chain_phases": [
+        {"kill_chain_name": "mitre-attack", "phase_name": "execution"}
+      ],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "T1059.001"}
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--app-layer-protocol",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "Application Layer Protocol",
+      "description": "Adversaries may communicate using application layer protocols.",
+      "kill_chain_phases": [
+        {"kill_chain_name": "mitre-attack", "phase_name": "command-and-control"}
+      ],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "T1071"}
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--web-protocols",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "Web Protocols",
+      "description": "Adversaries may use HTTP/HTTPS for command and control.",
+      "kill_chain_phases": [
+        {"kill_chain_name": "mitre-attack", "phase_name": "command-and-control"}
+      ],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "T1071.001"}
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "id": "attack-pattern--deprecated",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "Deprecated Technique",
+      "x_mitre_deprecated": true,
+      "kill_chain_phases": [
+        {"kill_chain_name": "mitre-attack", "phase_name": "execution"}
+      ],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "T9999"}
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--apt29",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "APT29",
+      "aliases": ["APT29", "Cozy Bear", "Midnight Blizzard", "Nobelium"],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "G0016"}
+      ]
+    },
+    {
+      "type": "intrusion-set",
+      "id": "intrusion-set--lazarus",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "name": "Lazarus Group",
+      "aliases": ["Lazarus Group", "HIDDEN COBRA"],
+      "external_references": [
+        {"source_name": "mitre-attack", "external_id": "G0032"}
+      ]
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--apt29-uses-powershell",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--apt29",
+      "target_ref": "attack-pattern--powershell"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--apt29-uses-web",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--apt29",
+      "target_ref": "attack-pattern--web-protocols"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--lazarus-uses-cmd",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--lazarus",
+      "target_ref": "attack-pattern--cmd"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--lazarus-uses-powershell",
+      "spec_version": "2.1",
+      "created": "2017-05-31T21:30:54.176Z",
+      "modified": "2024-04-15T14:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "intrusion-set--lazarus",
+      "target_ref": "attack-pattern--powershell"
+    }
+  ]
+}
